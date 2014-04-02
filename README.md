@@ -3,6 +3,12 @@ DOES NOT work with other pressure range modules like the MS5803-30BA, and it wil
 pressure and temperature values if used with other models. See http://github.com/millerlp for 
 libraries to use with the other MS5803 pressure sensor models.
 
+* MS5803-01BA: http://github.com/millerlp/MS5803_01 
+* MS5803-02BA: http://github.com/millerlp/MS5803_02 
+* MS5803-05BA: http://github.com/millerlp/MS5803_05 
+* MS5803-14BA: http://github.com/millerlp/MS5803_14 
+* MS5803-30BA: http://github.com/millerlp/MS5803_30 
+
 The MS5803 pressure sensor works on voltages around 3 volts. To use it with a 5V Arduino,
 you need to supply the sensor power from the Arduino's 3V3 voltage output. Additionally,
 you must place 10k ohm resistors between the SDA + SCL I2C communication lines and the 3V3 
