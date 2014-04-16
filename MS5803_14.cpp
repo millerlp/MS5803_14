@@ -166,11 +166,12 @@ void MS_5803::readSensor() {
     // Use integer division to calculate TEMP. It is necessary to cast
     // one of the operands as a signed 64-bit integer (int64_t) so there's no 
     // rollover issues in the numerator.
-    TEMP = 2000 + ((int64_t)dT * sensorCoeffs[6]) / pow(2,23);
+//    TEMP = 2000 + ((int64_t)dT * sensorCoeffs[6]) / pow(2,23);
+    TEMP = 2000 + ((int64_t)dT * sensorCoeffs[6]) / 8388608LL;
+//    TEMP = 2000 + ((int64_t)dT * sensorCoeffs[6]) / (int64_t)1<<23;
     // Recast TEMP as a signed 32-bit integer
     TEMP = (int32_t)TEMP;
-    // Calculate the human-readable temperature in Celsius
-    tempC  = (float)TEMP / 100; 
+
     
     // All operations from here down are done as integer math until we make
     // the final calculation of pressure in mbar. 
@@ -221,6 +222,9 @@ void MS_5803::readSensor() {
 	// For 14 bar sensor
 	mbarInt = ((D1 * Sensitivity) / 2097152 - Offset) / 32768;
 	mbar = (float)mbarInt / 10;
+    // Calculate the human-readable temperature in Celsius
+    tempC  = (float)TEMP / 100; 
+	
 	
     // Start other temperature conversions by converting mbar to psi absolute
 //    psiAbs = mbar * 0.0145038;
