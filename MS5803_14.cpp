@@ -183,7 +183,7 @@ void MS_5803::readSensor() {
     if (TEMP < 2000) {
 		// For 14 bar model
 		// If temperature is below 20.0C
-		T2 = 3 * ((uint64_t)dT * dT) / POW_2_33 ;
+		T2 = 3 * ((int64_t)dT * dT) / POW_2_33 ;
 		T2 = (int32_t)T2; // recast as signed 32bit integer
 		OFF2 = 3 * ((TEMP-2000) * (TEMP-2000)) / 2 ;
 		Sens2 = 5 * ((TEMP-2000) * (TEMP-2000)) / 8 ; 	
