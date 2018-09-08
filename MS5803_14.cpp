@@ -310,7 +310,7 @@ unsigned long MS_5803::MS_5803_ADC(char commandADC) {
     }
     // Now send the read command to the MS5803 
     Wire.beginTransmission(MS5803_I2C_ADDRESS);
-    Wire.write(CMD_ADC_READ);
+    Wire.write((byte)CMD_ADC_READ); // added cast
     Wire.endTransmission();
     // Then request the results. This should be a 24-bit result (3 bytes)
     Wire.requestFrom(MS5803_I2C_ADDRESS, 3);
