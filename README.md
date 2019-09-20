@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/18348660.svg)](https://zenodo.org/badge/latestdoi/18348660)
+
 Arduino library for the Measurement Specialties MS5803-14BA pressure sensor modules. This library
 DOES NOT work with other pressure range modules like the MS5803-30BA, and it will return incorrect
 pressure and temperature values if used with other models. See http://github.com/millerlp for 
@@ -54,3 +56,4 @@ Other useful commands:
 	
 	pressure() // Get pressure in mbar (returns a float value)
 ```
+
